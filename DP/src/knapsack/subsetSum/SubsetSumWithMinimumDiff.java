@@ -2,11 +2,12 @@ package knapsack.subsetSum;
 
 import java.util.ArrayList;
 
-// divide the array into 2 partitions P1, P2 -> S1, S2 such that |S1-S2| should be minimum
-// S2-S1 = (Range-S1)-S1 = Range - 2*S1 should be min 
-// find the candidates for S1 --> how ??
-// find the subset sum with sum = range
-// pick the last row in dp table, consider only the part of sum/2 to find the eligible candidates
+// Variation of EqualSumPartition. In ESP, |S1-S2| = 0. 
+// In this problem, |S1-S2| should be minimum
+// S2-S1 = (Range-S1)-S1 = Range - 2*S1 should be min where Range is nothing but sum of elements in array 
+// find the candidates for S1 --> how ?? S1 should somewhere lie between 0 and range/2
+// form the dp table for subsetSum considering Range as the target sum
+// pick the last row in dp table, consider only the part of sum/2 to find the eligible candidates for S1
 
 public class SubsetSumWithMinimumDiff {
 	
@@ -38,9 +39,11 @@ public class SubsetSumWithMinimumDiff {
 			if(dp[n][col] == true)		//identify the candidates from first half
 				candidates.add(col);
 		
+		// we already know that for |S2-S1| to be min, Range - 2*S1 should be min
+		
 		int minDiff = Integer.MAX_VALUE;
 		for(int i=0;i<candidates.size();i++)
-			minDiff = Math.min(minDiff, sum-2*candidates.get(i));
+			minDiff = Math.min(minDiff, sum-2*candidates.get(i));		//find the minimum difference
 		
 		return minDiff;
 	}

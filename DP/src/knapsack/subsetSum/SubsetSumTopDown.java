@@ -1,21 +1,25 @@
 package knapsack.subsetSum;
 
-// This is just a variation of knapsack problem
-// instead of wt[] we have arr[] and Sum instead of W
+// This is just a variation of knapsack problem. How ??
+// Given an item[] and a target, we have choice to include/exclude.
+
+// we have arr[] instead of wt[] and Sum instead of W
+// there is no val[], hence we can omit it.
 
 public class SubsetSumTopDown {
 	
 	public static boolean isSubsetSumPresent(int arr[], int sum, int n)
 	{
-		// i --> array size, j --> sum
+		// n --> array size, sum --> target sum
 		boolean dp[][] = new boolean[n+1][sum+1];
 		
-		//base case
+		// i --> array size, j --> sum
+		//Initialization
 		for(int j=0;j<=sum;j++)
 			dp[0][j] = false;		// if array is empty and there is a particular sum, no subset can be formed
 		
 		for(int i=0;i<=n;i++)
-			dp[i][0] = true;		// when sum is 0, then an empty subset {} can be formed
+			dp[i][0] = true;		// when sum is 0, then an empty subset {} can be formed watever the array size is
 		
 		for(int i=1;i<=n;i++)
 		{

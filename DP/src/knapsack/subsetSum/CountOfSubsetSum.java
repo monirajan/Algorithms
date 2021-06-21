@@ -1,7 +1,8 @@
 package knapsack.subsetSum;
 
-// Variation of subsetSum
-// instead of OR just make it as +
+// Variation of subsetSum problem
+// In subsetSum, we will return either true or false, here we need to return the count
+// instead of OR just make it as + to count the # of subsets
 
 public class CountOfSubsetSum {
 	

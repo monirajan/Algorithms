@@ -6,16 +6,17 @@ package knapsack.unbounded;
 // 2. each coin can be taken any # of times ==> unbounded
 // 3. Number of ways - so add all possibilities
 
-public class CoinChangeSet1 {
+public class CoinChangeMaxWays {
 	
 	static int coinChange(int coin[], int sum, int n)
 	{
 		int dp[][] = new int[n+1][sum+1];
 		
+		// initialization
 		for(int j=1;j<=sum;j++)
-			dp[0][j] = 0;
+			dp[0][j] = 0;			// if the array size is 0, then there is no way
 		for(int i=0;i<=n;i++)
-			dp[i][0] = 1;
+			dp[i][0] = 1;			// if the sum is 0, then there can be an empty set
 		
 		for(int i=1;i<=n;i++)
 		{

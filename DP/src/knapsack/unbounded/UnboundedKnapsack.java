@@ -2,20 +2,20 @@ package knapsack.unbounded;
 
 // This is same as that of 0-1 knapsack except the only difference in that an item can be included more than once
 // In 0-1 knapsack, we will consider an item as processed whether it is taken or not taken
-// In unbounded knapsack, we will not consider the item as processed if it is taken as again the same item can be fetched
+// In unbounded knapsack, we will not consider the item as processed if it is taken, as again the same item can be fetched
 
 public class UnboundedKnapsack {
 	
 	static int knapsack(int wt[], int val[], int W, int n)
 	{
 		int dp[][] = new int[n+1][W+1];
-		for(int i=0;i<=n;i++)
+		for(int i=0;i<=n;i++)			// initialization part
 		{
 			for(int j=0;j<=W;j++)
 			{
-				if(i==0 || j==0)
-					dp[i][j] = 0;
-			}
+				if(i==0 || j==0)		// result is 0, either if array length is 0 or capacity is 0
+					dp[i][j] = 0;		// remember as if we have capacity in bag and store is empty, then nothing can be bought
+			}							// or if there is store and we have no bag/ no capacity, then in that case too nothing can be bought
 		}
 		
 		for(int i=1;i<=n;i++)
