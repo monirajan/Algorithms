@@ -2,6 +2,7 @@ package LCS;
 
 
 // This problem is to find the minimum # of deletions to form a palindrome
+// This also caters minimum # of insertions to form a palindrome
 // This is also a variation of LCS. we will see how
 
 public class MinDeletionPalindrome {
