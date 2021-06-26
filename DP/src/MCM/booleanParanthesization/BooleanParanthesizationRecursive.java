@@ -8,7 +8,7 @@ public class BooleanParanthesizationRecursive {
 
 	public static void main(String args[])
 	{
-		String expression = "T^F&T";
+		String expression = "T|T&F^T";
 		
 		// Variation of MCM
 		// 1. Find value of i and j --> 0 to n-1
@@ -37,7 +37,7 @@ public class BooleanParanthesizationRecursive {
 		
 		// Remember k as to track symbols
 		int ways = 0;			// # of ways
-		for(int k=i+1;k<=j-1;k++)
+		for(int k=i+1;k<=j-1;k=k+2)
 		{
 			int leftTrue   = waysToParanthesize(expression, i, k-1, true);		// ways in which left expression can be evaluated to true
 			int leftFalse  = waysToParanthesize(expression, i, k-1, false);
